@@ -1,0 +1,45 @@
+[Unit]
+Description=INSA Integrated Healing System - Autonomous Platform Health
+Documentation=https://github.com/insaautomation/insa-crm-platform
+After=network-online.target docker.service postgresql.service
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=wil
+Group=wil
+WorkingDirectory=/home/wil/platforms/insa-crm/core/agents
+ExecStart=/home/wil/platforms/insa-crm/core/venv/bin/python3 /home/wil/platforms/insa-crm/core/agents/integrated_healing_system.py
+Restart=always
+RestartSec=30
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=integrated-healing
+
+# Resource Limits (prevent runaway processes)
+MemoryMax=1G
+MemoryHigh=768M
+CPUQuota=50%
+TasksMax=100
+LimitNOFILE=4096
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/wil/platforms/insa-crm
+ReadWritePaths=/var/lib/insa-crm
+ReadWritePaths=/tmp
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/home/wil/platforms/insa-crm/core:/home/wil/platforms/insa-crm/core/agents:/home/wil"
+
+[Install]
+WantedBy=multi-user.target
