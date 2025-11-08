@@ -9,36 +9,35 @@
 
 The INSA Integrated Healing System is a 4-layer intelligent autonomous agent that monitors and automatically heals infrastructure issues across the INSA CRM platform. It features pattern recognition, context awareness, a learning system, and metacognitive capabilities.
 
-**Key Achievement:** Industry-leading metacognitive agents - the ONLY production implementation found in 2025-2026 market research, providing a 12-18 month competitive advantage.
+**Key Achievement:** Industry-leading agents - the ONLY production implementation found in 2025-2026 market research, providing a 12-18 month competitive advantage.
 
 ## 🏆 Industry Leadership
 
 ### Metacognitive Agents (Phase 4)
-- **UNIQUE:** Only production metacognitive agents in the market
+- **UNIQUE:** Only production agents in the market
 - **Self-aware:** Detects when it's stuck (10+ failures, <10% success rate)
 - **Auto-escalation:** Creates GitHub issues with evidence when stuck
 - **Competitive Lead:** 12-18 months ahead of competition
-- **Revenue Potential:** $500K-2M ARR
 
 ## ✨ Features
 
-### Phase 1: Pattern Recognition (Oct 19, 14:07 UTC)
+### Phase 1: Pattern Recognition 
 - **IntelligentLogAnalyzer** - Analyzes logs before triggering web research
 - **CooldownManager** - Exponential backoff to prevent rate limiting
 - **Impact:** 80% reduction in web research calls
 
-### Phase 2: Context Awareness (Oct 19, 14:26 UTC)
+### Phase 2: Context Awareness 
 - **ServiceClassifier** - Identifies 3 service types (systemd, docker, hybrid)
 - **14 Error Patterns** - Comprehensive error pattern library
 - **Service-Specific Strategies** - Tailored healing approaches per service type
 
-### Phase 3: Learning System (Oct 19, 15:08 UTC)
+### Phase 3: Learning System 
 - **LearningDatabase** - SQLite persistent memory (305 lines)
 - **SolutionVerifier** - Async verification of fix effectiveness (57 lines)
 - **Confidence Adjustments** - Learns from successes and failures
 - **Pattern Tracking** - Builds library of known issues and solutions
 
-### Phase 4: Metacognition (Oct 19, 15:18 UTC) 🏆
+### Phase 4: Metacognition 🏆
 - **PerformanceMonitor** - Tracks agent success/failure rates (145 lines)
 - **StuckDetector** - Identifies stuck states (79 lines)
 - **MetacognitiveAgent** - Auto-escalates with evidence (68 lines)
@@ -112,18 +111,6 @@ sudo systemctl status integrated-healing-agent.service
 journalctl -u integrated-healing-agent -f
 ```
 
-## 📊 Monitored Services
-
-The agent monitors these INSA platform services:
-- INSA CRM Core (FastAPI - port 8003)
-- DefectDojo SOC (Django - port 8082)
-- ERPNext CRM (Frappe - port 9000)
-- InvenTree (Django - port 9600)
-- Mautic Marketing (PHP - port 9700)
-- n8n Workflows (Node.js - port 5678)
-- Grafana Analytics (Go - port 3002)
-- IEC 62443 Compliance (FastAPI - port 3004)
-
 ## 🔧 Configuration
 
 ### Service Limits (systemd)
@@ -137,10 +124,10 @@ LimitNOFILE=4096       # File descriptor limit
 
 ### Security
 ```ini
-NoNewPrivileges=true   # No privilege escalation
-PrivateTmp=true        # Isolated /tmp
-ProtectSystem=strict   # Read-only system files
-ProtectHome=read-only  # Read-only home
+No privilege escalation
+Isolated /tmp
+Read-only system files
+Read-only home
 ```
 
 ### Resource Paths
@@ -327,43 +314,8 @@ sudo systemctl restart integrated-healing-agent.service
 # Check performance metrics in database
 sqlite3 /var/lib/insa-crm/learning.db "SELECT * FROM performance_metrics;"
 
-# Verify GitHub integration (if enabled)
-# Check for created issues
-```
 
-## 📚 Documentation
 
-### Related Documents
-- **Phase 4 Deployment:** `~/PHASE4_METACOGNITION_DEPLOYED.md` (18KB)
-- **All Phases Complete:** `~/AGENT_INTELLIGENCE_COMPLETE_ALL_4_PHASES.md` (24KB)
-- **Phases 1-3:** `~/PHASES_1_2_3_COMPLETE.md` (16KB)
-- **Competitive Analysis:** `~/COMPETITIVE_ANALYSIS_2025_2026.md` (33KB)
-
-### Service File Location
-- **Systemd:** `/etc/systemd/system/integrated-healing-agent.service`
-- **Source:** `/home/wil/platforms/insa-crm/core/agents/integrated_healing_system.py`
-
-## 🏭 Production Deployment
-
-### Status
-- **Environment:** Production
-- **Uptime:** 99.8%
-- **Monitored Services:** 8 critical services
-- **Healing Success:** 98.5%
-- **Database Size:** 168KB
-
-### Resource Usage (Production)
-- Memory: 200MB average / 1GB max
-- CPU: <50% quota
-- Disk: 168KB database
-- Threads: 10-15 active
-
-### Integration Points
-- **INSA CRM Platform:** Full platform monitoring
-- **GitHub:** Issue escalation (optional)
-- **Systemd:** Native service integration
-- **Docker:** Container health monitoring
-- **PostgreSQL:** INSA CRM database checks
 
 ## 🤝 Contributing
 
@@ -395,25 +347,17 @@ MIT License - See LICENSE file for details
 - [ ] Distributed tracing integration
 - [ ] APM (Application Performance Monitoring)
 
-### Revenue Potential
-- **Metacognition-as-a-Service:** $500K-2M ARR
-- **IEC 62443 Compliance:** $1M-5M ARR
-- **Enterprise Platform:** $200K-1M ARR
-- **Total:** $2M-8M ARR by 2027
 
 ## 🔗 Related Projects
 
 - [INSA Autonomous Agents](https://github.com/WilBtc/insa-autonomous-agents) - Task orchestrator
 - [Bug Hunter Agent](https://github.com/WilBtc/bug-hunter-agent) - Bug detection & fixing
-- [INSA CRM Platform](https://github.com/insaautomation/insa-crm-platform) - Parent platform
 
 ## ⭐ Acknowledgments
 
 - Built for autonomous infrastructure management
-- Industry-first metacognitive capabilities
 - Zero API cost architecture (Claude Code subprocesses)
 - Production-tested on 8 critical services
-- 12-18 month competitive advantage
 
 ---
 
